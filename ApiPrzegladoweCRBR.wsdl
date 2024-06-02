@@ -1,0 +1,990 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01" xmlns:adr="http://www.mf.gov.pl/schematy/wspolne/KMD/adres/2019/01/01" xmlns:api="http://www.mf.gov.pl/schematy/AP/ApiPrzegladoweCRBR/2022/12/01" xmlns:dg="http://www.mf.gov.pl/schematy/wspolne/KMD/dzialalnoscGospodarcza/2019/01/01" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ko="http://www.mf.gov.pl/schematy/wspolne/kontekstOperacji/2019/07/01" xmlns:kr="http://www.mf.gov.pl/schematy/wspolne/KMD/kraj/2019/01/01" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01" xmlns:osfiz="http://www.mf.gov.pl/schematy/wspolne/KMD/osobaFizyczna/2019/01/01" xmlns:podm="http://www.mf.gov.pl/schematy/wspolne/KMD/podmiot/2019/01/01" xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:te="http://www.mf.gov.pl/schematy/wspolne/KMD/typyElementarne/2016/07/01" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp200409="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp200607="http://www.w3.org/2006/07/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  
+<wsdl:types>
+    <xsd:schema targetNamespace="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01" xmlns:mrm="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01" xmlns:tns="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01"/>
+    <xsd:schema targetNamespace="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01" xmlns:mrm="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01" xmlns:tns="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01">
+      <xsd:import namespace="http://www.mf.gov.pl/schematy/AP/ApiPrzegladoweCRBR/2022/12/01"/>
+      <xsd:element name="PobierzInformacjeOSpolkachIBeneficjentach" type="mrm:PobierzInformacjeOSpolkachIBeneficjentachTyp"/>
+      <xsd:complexType name="PobierzInformacjeOSpolkachIBeneficjentachTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element name="PobierzInformacjeOSpolkachIBeneficjentachDane" type="api:PobierzInformacjeOSpolkachIBeneficjentachDaneTyp"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PobierzInformacjeOSpolkachIBeneficjentachOdpowiedz" type="mrm:PobierzInformacjeOSpolkachIBeneficjentachOdpowiedzTyp"/>
+      <xsd:complexType name="PobierzInformacjeOSpolkachIBeneficjentachOdpowiedzTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element name="PobierzInformacjeOSpolkachIBeneficjentachOdpowiedzDane" type="api:PobierzInformacjeOSpolkachIBeneficjentachOdpowiedzDaneTyp"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.mf.gov.pl/schematy/AP/ApiPrzegladoweCRBR/2022/12/01" xmlns:mrm="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01" xmlns:tns="http://www.mf.gov.pl/schematy/AP/ApiPrzegladoweCRBR/2022/12/01">
+      <xsd:import namespace="http://www.mf.gov.pl/schematy/wspolne/KMD/podmiot/2019/01/01"/>
+      <xsd:import namespace="http://www.mf.gov.pl/schematy/wspolne/KMD/osobaFizyczna/2019/01/01"/>
+      <xsd:import namespace="http://www.mf.gov.pl/schematy/wspolne/KMD/adres/2019/01/01"/>
+      <xsd:complexType name="BeneficjentRzeczywistyTyp">
+        <xsd:annotation/>
+        <xsd:choice>
+          <xsd:sequence>
+            <xsd:element name="PierwszeImie" type="osfiz:TImie">
+              <xsd:annotation/>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="KolejneImiona" type="xsd:string">
+              <xsd:annotation/>
+            </xsd:element>
+            <xsd:element name="Nazwisko" type="osfiz:TNazwisko">
+              <xsd:annotation/>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="PESEL" type="osfiz:TNrPESEL">
+              <xsd:annotation/>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="DataUrodzenia" type="xsd:date">
+              <xsd:annotation/>
+            </xsd:element>
+            <xsd:element maxOccurs="10" name="Obywatelstwo" type="tns:TKraj">
+              <xsd:annotation/>
+            </xsd:element>
+            <xsd:element name="KrajZamieszkania" type="tns:TKraj">
+              <xsd:annotation/>
+            </xsd:element>
+            <xsd:element name="ListaInformacjiOUdzialach" type="tns:ListaInformacjiOUdzialachTyp">
+              <xsd:annotation/>
+            </xsd:element>
+          </xsd:sequence>
+          <xsd:sequence>
+            <xsd:element name="NazwaBeneficjentaGrupowego" type="xsd:string">
+              <xsd:annotation/>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="InformacjeOUprawnieniachPrzyslugujacychBeneficjentowiGrupowemuTrust" type="xsd:string">
+              <xsd:annotation/>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:choice>
+      </xsd:complexType>
+      <xsd:complexType name="InformacjaORozbieznosciachTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element name="IdentyfikatorUwagi" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="InformacjaDlaZainteresowanego" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="InformacjaOUdzialachTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="UprawnieniaWlascicielskieBezposrednie" type="tns:WlasnoscUdzialuTyp">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="UprawnieniaWlascicielskiePosrednie" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="InneUprawnienia" type="tns:InneUprawnienia">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="InneUprawnienia">
+        <xsd:sequence>
+          <xsd:element name="RodzajInnychUprawnien" type="tns:TPozycjaSlownika">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="OpisInnychUprawnien">
+            <xsd:annotation/>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="InformacjaOUprzywilejowaniuTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element maxOccurs="10" name="RodzajUprzywilejowania" type="tns:TPozycjaSlownika">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="OpisUprzywilejowania" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ListaBeneficjentowRzeczywistychTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="BeneficjentRzeczywisty" type="tns:BeneficjentRzeczywistyTyp">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ListaInformacjiORozbieznosciachTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="InformacjaORozbieznosciach" type="tns:InformacjaORozbieznosciachTyp">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ListaInformacjiOSpolkachIBeneficjentachApiZapytaniaTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="SpolkaIBeneficjenci" type="tns:SpolkaIBeneficjenciApiZapytaniaTyp">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ListaInformacjiOUdzialachTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="InformacjaOUdzialach" type="tns:InformacjaOUdzialachTyp">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ListaZglaszajacychTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="Zglaszajacy" type="tns:ZglaszajacyTyp">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ListaZgloszenSpolkiTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="ZgloszenieSpolki" type="tns:SpolkaIBeneficjenciGuiZgloszeniaTyp">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PobierzInformacjeOSpolkachIBeneficjentachDaneTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element name="SzczegolyWniosku" type="tns:SzczegolyWnioskuTyp">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PobierzInformacjeOSpolkachIBeneficjentachOdpowiedzDaneTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element name="IdentyfikatorWniosku" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="DataICzasZlozeniaWniosku" type="xsd:dateTime">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="DataICzasUdostepnieniaWniosku" type="xsd:dateTime">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="ListaInformacjiOSpolkachIBeneficjentach" type="tns:ListaInformacjiOSpolkachIBeneficjentachApiZapytaniaTyp">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="SzczegolyWniosku" type="tns:SzczegolyWnioskuTyp">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="Status" type="tns:StatusTyp">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="CelZapytania" type="tns:CelZapytaniaTyp">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PobierzZgloszeniaDaneTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element name="NIP" type="tns:NIPWithTrust">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PobierzZgloszeniaOdpowiedzDaneTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element name="CzyIstnieje" type="xsd:boolean">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="ListaZgloszenSpolki" type="tns:ListaZgloszenSpolkiTyp">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZglaszajacyTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element name="PierwszeImie" type="osfiz:TImie">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="KolejneImiona" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="Nazwisko" type="osfiz:TNazwisko">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="PESEL" type="osfiz:TNrPESEL">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="DataUrodzenia" type="xsd:date">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="10" name="Obywatelstwo" type="tns:TKraj">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="KrajZamieszkania" type="tns:TKraj">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="InneInformacje" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="ListaFunkcjiZglaszajacego" type="tns:ListaFunkcjiZglaszajacegoTyp"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ListaFunkcjiZglaszajacegoTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="Funkcja" type="tns:FunkcjaZglaszajacegoTyp">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FunkcjaZglaszajacegoTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element name="Opis" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="Kod" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SpolkaIBeneficjenciApiZapytaniaTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element name="Nazwa" type="podm:TNazwaPodmiotu">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="NIP" type="tns:NIPWithTrust">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="KRS" type="podm:TNrKRS">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="KodFormyOrganizacyjnej" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="OpisFormyOrganizacyjnej" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="KodPocztowy" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="Miejscowosc" type="adr:TNazwaMiejscowosci">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="Ulica" type="adr:TNazwaUlicy">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="NrDomu" type="adr:TNrBudynku">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="NrLokalu" type="adr:TNrLokalu">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="Teryt" type="tns:TTeryt">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="Numer" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="InneDane" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="Kraj" type="tns:TKraj">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="ListaBeneficjentowRzeczywistych" type="tns:ListaBeneficjentowRzeczywistychTyp">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="ListaZglaszajacych" type="tns:ListaZglaszajacychTyp">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="DataPoczatkuPrezentacjiZgloszenia" type="xsd:date">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="DataKoncaPrezentacjiZgloszenia" type="xsd:date">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="Skorygowane" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="NumerReferencyjny" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="RejestrZagranicznyTrust" type="tns:TRejestrZagranicznyTrust">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="ListaInformacjiORozbieznosciach" type="tns:ListaInformacjiORozbieznosciachTyp">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="Postepowanie" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SpolkaIBeneficjenciGuiZgloszeniaTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element name="DataICzasRejestracjiZgloszenia" type="xsd:dateTime">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="NumerReferencyjny" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="DataZdarzenia" type="xsd:date">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="Nazwa" type="podm:TNazwaPodmiotu">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="NIP" type="tns:NIPWithTrust">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="KRS" type="podm:TNrKRS">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="KodFormyOrganizacyjnej" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="OpisFormyOrganizacyjnej" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="KodPocztowy" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="Miejscowosc" type="adr:TNazwaMiejscowosci">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="Ulica" type="adr:TNazwaUlicy">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="NrDomu" type="adr:TNrBudynku">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="NrLokalu" type="adr:TNrLokalu">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="Teryt" type="tns:TTeryt">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="Numer" type="adr:TNrBudynku">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="InneDane" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="Kraj" type="tns:TKraj">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="RejestrZagranicznyTrust" type="tns:TRejestrZagranicznyTrust">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="ListaBeneficjentowRzeczywistych" type="tns:ListaBeneficjentowRzeczywistychTyp">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="ListaZglaszajacych" type="tns:ListaZglaszajacychTyp">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="Postepowanie" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SzczegolyWnioskuTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:choice>
+            <xsd:element name="NIP" type="tns:NIPWithTrust">
+              <xsd:annotation/>
+            </xsd:element>
+            <xsd:element name="PESEL" type="osfiz:TNrPESEL">
+              <xsd:annotation/>
+            </xsd:element>
+            <xsd:element name="KRS" type="podm:TNrKRS">
+              <xsd:annotation/>
+            </xsd:element>
+            <xsd:element name="Nazwa" type="podm:TNazwaPodmiotu">
+              <xsd:annotation/>
+            </xsd:element>
+            <xsd:sequence>
+              <xsd:element name="DataUrodzenia" type="xsd:date">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element name="PierwszeImie" type="osfiz:TImie">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element name="Nazwisko" type="osfiz:TNazwisko">
+                <xsd:annotation/>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:choice>
+          <xsd:element minOccurs="0" name="DataOd" type="xsd:date">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="DataDo" type="xsd:date">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="WlasnoscUdzialuTyp">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element name="UprawnieniaWlascicielskie" type="tns:TPozycjaSlownika">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="JednostkaMiary" type="tns:TPozycjaSlownika">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="Ilosc" type="xsd:double">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="InformacjaOUprzywilejowaniu" type="tns:InformacjaOUprzywilejowaniuTyp">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TPozycjaSlownika">
+        <xsd:sequence>
+          <xsd:element name="Kod">
+            <xsd:annotation/>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:pattern value="\d{2,3}"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="Opis" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TRejestrZagranicznyTrust">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element name="KrajProwadzacyRejestr" type="tns:TKraj">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="NazwaRejestru" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="NumerWRejestrze" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TKraj">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element name="Kod" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element name="Nazwa" type="xsd:string">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TTeryt">
+        <xsd:sequence>
+          <xsd:element name="Wojewodztwo">
+            <xsd:annotation/>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="Powiat">
+            <xsd:annotation/>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="Gmina">
+            <xsd:annotation/>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:maxLength value="100"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="StatusTyp">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="BladFormalny"/>
+          <xsd:enumeration value="BrakInformacji"/>
+          <xsd:enumeration value="IstniejaInformacje"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CelZapytaniaTyp">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="BeneficjenciISpolki"/>
+          <xsd:enumeration value="SpolkiWKtorychOsobaJestBeneficjentem"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="NIPWithTrust">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="(([1-9]((\d[1-9])|([1-9]\d)))|(100))\d{7}"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://www.mf.gov.pl/schematy/wspolne/KMD/podmiot/2019/01/01" xmlns:mrm="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01" xmlns:of="http://www.mf.gov.pl/schematy/wspolne/KMD/osobaFizyczna/2019/01/01" xmlns:pd="http://www.mf.gov.pl/schematy/wspolne/KMD/podmiot/2019/01/01">
+      <xsd:import namespace="http://www.mf.gov.pl/schematy/wspolne/KMD/dzialalnoscGospodarcza/2019/01/01"/>
+      <xsd:import namespace="http://www.mf.gov.pl/schematy/wspolne/KMD/osobaFizyczna/2019/01/01"/>
+      <xsd:import namespace="http://www.mf.gov.pl/schematy/wspolne/KMD/adres/2019/01/01"/>
+      <xsd:complexType abstract="true" name="TDanePodmiotu">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="AdresEmail" type="pd:TAdresEmail">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="NIP" type="pd:TNrNIP">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="Telefon" type="pd:TNrTelefonu">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="SkrytkaPocztowa" type="adr:TSkrytkaPocztowa">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="TNazwaSkrocona">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1"/>
+          <xsd:maxLength value="70"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="TOrganizacja">
+        <xsd:annotation/>
+        <xsd:complexContent>
+          <xsd:extension base="pd:TDanePodmiotu">
+            <xsd:sequence>
+              <xsd:element maxOccurs="1" minOccurs="0" name="KRS" type="pd:TNrKRS">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="1" name="Nazwa" type="pd:TNazwaPodmiotu">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="NazwaSkrocona" type="pd:TNazwaSkrocona">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="1" name="REGON" type="dg:TNrRegon">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="AdresSiedziby" type="adr:TAdres">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="unbounded" minOccurs="0" name="AdresDodatkowy" type="adr:TAdres">
+                <xsd:annotation/>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:simpleType name="TNrTelefonu">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:token">
+          <xsd:pattern value="(\+)?[0-9]{1,20}"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TAdresEmail">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:token">
+          <xsd:pattern value="([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="TPodmiot">
+        <xsd:annotation/>
+        <xsd:choice>
+          <xsd:element maxOccurs="1" minOccurs="1" name="Organizacja" type="pd:TOrganizacja">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="OsobaFizyczna" type="of:TOsobaFizyczna">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+      <xsd:simpleType name="TNrKRS">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:token">
+          <xsd:pattern value="\d{10}"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TNrNIP">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="[1-9]((\d[1-9])|([1-9]\d))\d{7}"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TNazwaPodmiotu">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1"/>
+          <xsd:maxLength value="2000"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://www.mf.gov.pl/schematy/wspolne/KMD/dzialalnoscGospodarcza/2019/01/01" xmlns:mrm="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01" xmlns:pd="http://www.mf.gov.pl/schematy/wspolne/KMD/podmiot/2019/01/01">
+      <xsd:import namespace="http://www.mf.gov.pl/schematy/wspolne/KMD/podmiot/2019/01/01"/>
+      <xsd:import namespace="http://www.mf.gov.pl/schematy/wspolne/KMD/adres/2019/01/01"/>
+      <xsd:complexType name="TDzialanoscGospodarcza">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="Nazwa" type="pd:TNazwaPodmiotu">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="NazwaSkrocona" type="pd:TNazwaSkrocona">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="REGON" type="dg:TNrRegon">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="DodatkowyAdresProwadzenia" type="adr:TAdres">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="AdresProwadzenia" type="adr:TAdres">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="TNrRegon">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="\d{9}|\d{14}"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://www.mf.gov.pl/schematy/wspolne/KMD/adres/2019/01/01" xmlns:mrm="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01">
+      <xsd:import namespace="http://www.mf.gov.pl/schematy/wspolne/KMD/kraj/2019/01/01"/>
+      <xsd:simpleType name="TKodPocztowy">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:token">
+          <xsd:minLength value="1"/>
+          <xsd:maxLength value="15"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="TSkrytkaPocztowa">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="KodPocztowy" type="adr:TKodPocztowyPL">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="NumerSkrytki" type="adr:TNrSkrytki">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="Poczta" type="adr:TUrządPocztowy">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="TNrLokalu">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:token">
+          <xsd:minLength value="1"/>
+          <xsd:maxLength value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TUrządPocztowy">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:token">
+          <xsd:minLength value="1"/>
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TNrSkrytki">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:token">
+          <xsd:minLength value="1"/>
+          <xsd:maxLength value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TNrBudynku">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:token">
+          <xsd:minLength value="1"/>
+          <xsd:maxLength value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TNazwaMiejscowosci">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1"/>
+          <xsd:maxLength value="90"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="TAdres">
+        <xsd:annotation/>
+        <xsd:choice>
+          <xsd:element maxOccurs="1" minOccurs="1" name="AdresZagraniczny" type="adr:TAdresZagraniczny">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="AdresPolski" type="adr:TAdresPolski">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+      <xsd:complexType name="TAdresZagraniczny">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="KodKraju" type="kr:TKodKraju">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="KodPocztowy" type="adr:TKodPocztowy">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="Miejscowosc" type="adr:TNazwaMiejscowosci">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Ulica" type="adr:TNazwaUlicy">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="NrDomu" type="adr:TNrBudynku">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="NrLokalu" type="adr:TNrLokalu">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="TNazwaUlicy">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:token">
+          <xsd:minLength value="1"/>
+          <xsd:maxLength value="200"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="TAdresPolski">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Gmina" type="adr:TJednAdmin">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="KodPocztowy" type="adr:TKodPocztowyPL">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="Miejscowosc" type="adr:TNazwaMiejscowosci">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="NrDomu" type="adr:TNrBudynku">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="NrLokalu" type="adr:TNrLokalu">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Poczta" type="adr:TUrządPocztowy">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Powiat" type="adr:TJednAdmin">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Ulica" type="adr:TNazwaUlicy">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Wojewodztwo" type="adr:TJednAdmin">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="TKodPocztowyPL">
+        <xsd:annotation/>
+        <xsd:restriction base="adr:TKodPocztowy">
+          <xsd:pattern value="\d{5}|(\d{2}\-\d{3})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TJednAdmin">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:token">
+          <xsd:minLength value="1"/>
+          <xsd:maxLength value="36"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://www.mf.gov.pl/schematy/wspolne/KMD/kraj/2019/01/01" xmlns:mrm="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01">
+      <xsd:simpleType name="TKodKraju">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="[A-Z][A-Z]"/>
+          <xsd:length value="2"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://www.mf.gov.pl/schematy/wspolne/KMD/osobaFizyczna/2019/01/01" xmlns:mrm="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01" xmlns:of="http://www.mf.gov.pl/schematy/wspolne/KMD/osobaFizyczna/2019/01/01" xmlns:pd="http://www.mf.gov.pl/schematy/wspolne/KMD/podmiot/2019/01/01">
+      <xsd:import namespace="http://www.mf.gov.pl/schematy/wspolne/KMD/kraj/2019/01/01"/>
+      <xsd:import namespace="http://www.mf.gov.pl/schematy/wspolne/KMD/typyElementarne/2016/07/01"/>
+      <xsd:import namespace="http://www.mf.gov.pl/schematy/wspolne/KMD/podmiot/2019/01/01"/>
+      <xsd:import namespace="http://www.mf.gov.pl/schematy/wspolne/KMD/dzialalnoscGospodarcza/2019/01/01"/>
+      <xsd:import namespace="http://www.mf.gov.pl/schematy/wspolne/KMD/adres/2019/01/01"/>
+      <xsd:simpleType name="TRodzajDokumentuTozsamosci">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="DOW"/>
+          <xsd:enumeration value="KSTP"/>
+          <xsd:enumeration value="PASZ"/>
+          <xsd:enumeration value="PZAG"/>
+          <xsd:enumeration value="TDOW"/>
+          <xsd:enumeration value="TTOZ"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TNazwisko">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:token">
+          <xsd:minLength value="1"/>
+          <xsd:maxLength value="300"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="TOsobaFizyczna">
+        <xsd:annotation/>
+        <xsd:complexContent>
+          <xsd:extension base="pd:TDanePodmiotu">
+            <xsd:sequence>
+              <xsd:element maxOccurs="1" minOccurs="1" name="DataUrodzenia" type="te:TData">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="1" name="Imie" type="of:TImie">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ImieDrugie" type="of:TImie">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ImieMatki" type="of:TImie">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ImieOjca" type="of:TImie">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="MiejsceUrodzenia" type="of:TMiejsceUrodzenia">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="1" name="Nazwisko" type="of:TNazwisko">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="NazwiskoRodowe" type="of:TNazwisko">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="Obywatelstwo" type="kr:TKodKraju">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="PESEL" type="of:TNrPESEL">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="1" name="Plec" type="of:TPlec">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="AdresZamieszkania" type="adr:TAdres">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="unbounded" minOccurs="0" name="DokumentTozsamosci" type="of:TDokumentTozsamosci">
+                <xsd:annotation/>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="DzialalnoscGospodarcza" type="dg:TDzialanoscGospodarcza">
+                <xsd:annotation/>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:simpleType name="TImie">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:token">
+          <xsd:minLength value="1"/>
+          <xsd:maxLength value="120"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TMiejsceUrodzenia">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1"/>
+          <xsd:maxLength value="112"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TPlec">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="KOBIETA"/>
+          <xsd:enumeration value="MEZCZYZNA"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TNumerDokumentuTozsamosci">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1"/>
+          <xsd:maxLength value="30"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="TDokumentTozsamosci">
+        <xsd:annotation/>
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="Numer" type="of:TNumerDokumentuTozsamosci">
+            <xsd:annotation/>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="1" name="Rodzaj" type="of:TRodzajDokumentuTozsamosci">
+            <xsd:annotation/>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="TNrPESEL">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="\d{11}"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://www.mf.gov.pl/schematy/wspolne/KMD/typyElementarne/2016/07/01" xmlns:mrm="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01">
+      <xsd:simpleType name="TData">
+        <xsd:annotation/>
+        <xsd:restriction base="xsd:date">
+          <xsd:minInclusive value="1900-01-01"/>
+          <xsd:whiteSpace value="collapse"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+  </wsdl:types>
+<wsdl:message name="PobierzInformacjeOSpolkachIBeneficjentachOdpowiedz">
+<wsdl:part element="xsns:PobierzInformacjeOSpolkachIBeneficjentachOdpowiedz" name="ParametryPobierzInformacjeOSpolkachIBeneficjentachOdpowiedz" xmlns:xsns="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01"/>
+  </wsdl:message>
+<wsdl:message name="PobierzInformacjeOSpolkachIBeneficjentachZlecenie">
+<wsdl:part element="xsns:PobierzInformacjeOSpolkachIBeneficjentach" name="ParametryPobierzInformacjeOSpolkachIBeneficjentachZlecenie" xmlns:xsns="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01"/>
+  </wsdl:message>
+<wsdl:portType name="ApiPrzegladoweCRBR">
+<wsdl:operation name="PobierzInformacjeOSpolkachIBeneficjentach">
+<wsdl:input message="ns0:PobierzInformacjeOSpolkachIBeneficjentachZlecenie" name="PobierzInformacjeOSpolkachIBeneficjentachRequest"/>
+<wsdl:output message="ns0:PobierzInformacjeOSpolkachIBeneficjentachOdpowiedz" name="PobierzInformacjeOSpolkachIBeneficjentachResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+<wsdl:binding name="ApiPrzegladoweCRBRBinding" type="ns0:ApiPrzegladoweCRBR">
+<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="PobierzInformacjeOSpolkachIBeneficjentach">
+<soap12:operation soapAction="http://www.mf.gov.pl/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01/PobierzInformacjeOSpolkachIBeneficjentach" soapActionRequired="false" style="document"/>
+<wsdl:input name="PobierzInformacjeOSpolkachIBeneficjentachRequest">
+<soap12:body use="literal"/>
+      </wsdl:input>
+<wsdl:output name="PobierzInformacjeOSpolkachIBeneficjentachResponse">
+<soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+<wsdl:service name="ApiPrzegladoweCRBRService">
+<wsdl:port binding="ns0:ApiPrzegladoweCRBRBinding" name="ApiPrzegladoweCRBRPort">
+<soap12:address location="https://bramka-crbr.mf.gov.pl:5058/uslugiBiznesowe/uslugiESB/AP/ApiPrzegladoweCRBR/2022/12/01"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
